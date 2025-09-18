@@ -122,8 +122,11 @@ export function LoginForm() {
             htmlType="submit"
             className="w-full"
           >
-            Submit
+            Login
           </Button>
+          <h1 className="py-2 text-center text-sm font-medium">
+            Don&apos;t have an account? <a href="/signup">Sign up</a>
+          </h1>
         </Form>
       </Card>
     </>

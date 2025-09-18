@@ -264,6 +264,9 @@ export function SignupForm() {
           >
             Submit
           </Button>
+          <h1 className="py-2 text-center text-sm font-medium">
+            Already have an account? <a href="/login">Log in</a>
+          </h1>
         </Form>
       </Card>
     </>

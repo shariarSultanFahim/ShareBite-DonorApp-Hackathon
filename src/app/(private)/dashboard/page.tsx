@@ -1,16 +1,11 @@
 "use client";
 
 import { useGetAdminList } from "@/lib/actions/admin/list.get";
-import { signOut } from "next-auth/react";
-import { Button } from "antd";
 
 export default function DashboardPage() {
   const { data, isLoading } = useGetAdminList({
     paginate: true,
   });
-  const signout = async () => {
-    await signOut();
-  };
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
@@ -32,10 +27,6 @@ export default function DashboardPage() {
           </ul>
         )}
       </div>
-
-      <Button type="primary" onClick={signout}>
-        Sign Out
-      </Button>
     </div>
   );
 }

@@ -3,5 +3,5 @@ export default async function PrivateLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <div className="relative max-w-[min(80rem,95vw)] mx-auto pt-10">{children}</div>;
 }

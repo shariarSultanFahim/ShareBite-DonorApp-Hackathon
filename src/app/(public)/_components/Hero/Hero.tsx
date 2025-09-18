@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="flex flex-col items-center justify-center gap-3 md:gap-6 text-center">
-      <h1 className="text-2xl md:text-4xl lg:text-6xl font-semibold">
+      <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold">
         Share a Bite, Share the Love
         <br />
         Feeding Hearts, Not Just Stomachs

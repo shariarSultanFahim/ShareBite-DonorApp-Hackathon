@@ -7,16 +7,13 @@ import Image from "next/image";
 export default function Hero() {
   return (
     <div className="flex flex-col items-center justify-center gap-3 md:gap-6 text-center">
-      <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold">
-        Share a Bite, Share the Love
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold">
+        Share a Bite
         <br />
-        Feeding Hearts, Not Just Stomachs
+      Share the Love
       </h1>
       <p className="max-w-3xl text-slate-600 text-sm md:text-base">
-        Every Extra Meal Can Be A Source Of Hope, Nourishment, And Joy For
-        Someone In Need—By Sharing What You Have, Connecting With Your
-        Community, And Taking Small Yet Meaningful Actions, Together We Can
-        Create A World Where No One Goes Hungry And Every Bite Truly Counts.
+        Every extra meal can bring hope, nourishment, and joy. By sharing, connecting with your community, and taking small meaningful actions, we can help ensure no one goes hungry and every bite counts.
       </p>
       <Button
         type="primary"

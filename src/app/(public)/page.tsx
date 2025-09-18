@@ -1,5 +1,6 @@
 "use client";
 import BringJoy from "./_components/BringJoy/BringJoy";
+import Footer from "./_components/Footer/Footer";
 import Header from "./_components/Header/Header";
 import Hero from "./_components/Hero/Hero";
 import MoreThanFood from "./_components/MoreThanFood/MoreThanFood";
@@ -14,6 +15,7 @@ export default function HomePage() {
         <SDGs />
         <BringJoy />
         <MoreThanFood />
+        <Footer />
       </div>
     </div>
   );

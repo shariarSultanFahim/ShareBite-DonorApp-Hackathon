@@ -18,7 +18,13 @@ export default function BringJoy() {
         </p>
       </div>
 
-      <Image src="/bringjoy.webp" className="rounded-2xl " alt="Hero image" width={640} height={100} />
+      <Image
+        src="/bringJoy.webp"
+        className="rounded-2xl "
+        alt="Bring Joy image"
+        width={640}
+        height={100}
+      />
     </div>
   );
 }

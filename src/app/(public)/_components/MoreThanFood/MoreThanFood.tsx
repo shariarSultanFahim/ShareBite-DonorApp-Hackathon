@@ -12,11 +12,19 @@ export default function MoreThanFood() {
           Give What Matters
         </h1>
         <p className="max-w-3xl text-slate-600 text-sm md:text-base lg:text-left">
-         From groceries and clothing to medicines, personal care items, and everyday essentials, every donation you make becomes a source of hope and comfort for individuals and families in need.
+          From groceries and clothing to medicines, personal care items, and
+          everyday essentials, every donation you make becomes a source of hope
+          and comfort for individuals and families in need.
         </p>
       </div>
 
-      <Image src="/Grocery.webp" className="rounded-2xl" alt="Hero image" width={640} height={100} />
+      <Image
+        src="/grocery.webp"
+        className="rounded-2xl"
+        alt="Grocery image"
+        width={640}
+        height={100}
+      />
     </div>
   );
 }

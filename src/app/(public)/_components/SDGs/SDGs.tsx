@@ -5,7 +5,7 @@ import Image from "next/image";
 export default function SDGs() {
   return (
     <div className="flex flex-col items-center justify-center gap-3 md:gap-6 text-center">
-      <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold">
+      <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold">
         Driving Change <br /> Through Global Goals
       </h1>
       <p className="max-w-3xl text-slate-600 text-sm md:text-base">

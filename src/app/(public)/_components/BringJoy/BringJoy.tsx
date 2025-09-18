@@ -6,7 +6,7 @@ export default function BringJoy() {
   return (
     <div className="flex flex-col lg:flex-row items-center justify-center gap-3 md:gap-6 lg:gap-10 text-center">
       <div className="space-y-3 md:space-y-6">
-        <h1 className="text-2xl md:text-5xl lg:text-6xl font-semibold lg:text-right">
+        <h1 className="text-3xl md:text-5xl lg:text-6xl font-semibold lg:text-right">
           Spread Smiles
           <br />
           Create Change
@@ -18,7 +18,7 @@ export default function BringJoy() {
         </p>
       </div>
 
-      <Image src="/bringjoy.webp" className="rounded-2xl" alt="Hero image" width={640} height={100} />
+      <Image src="/bringjoy.webp" className="rounded-2xl " alt="Hero image" width={640} height={100} />
     </div>
   );
 }

@@ -21,18 +21,16 @@ const options: NextAuthOptions = {
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        username: { label: "Username", type: "text" },
-        password: { label: "Password", type: "password" },
+        email: { label: "email", type: "text" },
+        password: { label: "password", type: "password" },
       },
 
       async authorize(credentials) {
         if (!credentials) {
-          console.error("Missing credentials");
           return null;
         }
 
-        if (!credentials.username) {
-          console.error("Email/Phone Number is required");
+        if (!credentials.email) {
           return null;
         }
 
@@ -45,17 +43,17 @@ const options: NextAuthOptions = {
           //   const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/user/login/`;
 
           const payload = {
-            username: credentials.username,
+            email: credentials.email,
             password: credentials.password,
           };
 
-          const res = await axios.post("/user/login/", payload);
+          const res = await axios.post("/donor/login/", payload);
 
           if (res.data) {
             const { access: accessToken, refresh: refreshToken } = res.data; // Destructure access and refresh tokens
 
             return {
-              id: credentials.username, // no user ID in this case, using username
+              id: credentials.email, // no user ID in this case, using email
               accessToken,
               refreshToken,
             };

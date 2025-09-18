@@ -7,7 +7,7 @@ interface SignInData {
 }
 
 const signin = (data: SignInData) => {
-  return instance.post("/auth/login", { ...data });
+  return instance.post("/donor/login", { ...data });
 };
 
 export const useSignin = () => {

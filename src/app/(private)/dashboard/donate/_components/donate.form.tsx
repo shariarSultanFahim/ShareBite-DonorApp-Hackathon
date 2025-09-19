@@ -7,7 +7,7 @@ import { useDonate } from "@/lib/actions/donate/donate.request";
 
 import { Button, Card, Form, Input, InputNumber, message, Select, Space } from "antd";
 const { Item, ErrorList } = Form;
-
+const { Option } = Select;
 export function DonateForm({ userId }: { userId?: string }) {
   const [messageApi, contextHolder] = message.useMessage();
   const { mutateAsync: donate, isPending } = useDonate();
@@ -53,7 +53,7 @@ export function DonateForm({ userId }: { userId?: string }) {
   return (
     <>
       {contextHolder}
-      <Card className="shadow-md max-w-xl mx-auto">
+      <Card className="shadow-md max-w-2xl mx-auto">
         <Form
           layout="vertical"
           requiredMark={false}
@@ -74,10 +74,10 @@ export function DonateForm({ userId }: { userId?: string }) {
                   >
                     <Item noStyle>
                       <Form.Item noStyle>
-                        <Space.Compact>
+                        
                           <Form.Item noStyle>
                             <Select
-                              className={` ${
+                              className={`${
                                 error ? "border-red-500" : ""
                               }`}
                               value={value}
@@ -90,13 +90,13 @@ export function DonateForm({ userId }: { userId?: string }) {
                                
                               }}
                             >
-                              <option value="">Select type</option>
-                              <option value="Food">Food</option>
-                              <option value="Medicine">Medicine</option>
-                              <option value="Cloth">Cloth</option>
+                              <Option value="">Select type</Option>
+                              <Option value="Food">Food</Option>
+                              <Option value="Medicine">Medicine</Option>
+                              <Option value="Cloth">Cloth</Option>
                             </Select>
                           </Form.Item>
-                        </Space.Compact>
+                    
                       </Form.Item>
                     </Item>
                     <ErrorList
@@ -183,10 +183,17 @@ export function DonateForm({ userId }: { userId?: string }) {
               <>
                 <Item<FormValues>
                   label="Image"
-                  style={{ marginBottom: "12px",  }}
+                  style={{ marginBottom: "12px", }}
                 >
                   <Item noStyle>
                     <Input
+                      className="ant-input"
+                      style={{
+                        height: 40,
+                        paddingTop: 8,
+                        borderRadius: 6,
+                        display: "block",
+                      }}
                       type="file"
                       accept="image/*"
                       name="avatar"

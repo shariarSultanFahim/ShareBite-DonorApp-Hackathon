@@ -3,9 +3,12 @@
 import React, { ReactNode, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
+  AppstoreOutlined,
+  GiftOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   MoneyCollectFilled,
+  PoweroffOutlined,
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
@@ -36,25 +39,25 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           items={[
             {
               key: "1",
-              icon: <UserOutlined />,
+              icon: <AppstoreOutlined />,
               label: "Dashboard",
               onClick: () => router.push("/dashboard"),
             },
             {
               key: "2",
-              icon: <VideoCameraOutlined />,
+              icon: <GiftOutlined />,
               label: "Donate",
               onClick: () => router.push("/dashboard/donate"),
             },
             {
               key: "3",
-              icon: <MoneyCollectFilled />,
+              icon: <UserOutlined />,
               label: "My Donations",
               onClick: () => router.push("/dashboard/my-donations"),
             },
             {
               key: "4",
-              icon: <UserOutlined />,
+              icon: <PoweroffOutlined />,
               label: "Logout",
               onClick: signout,
             },

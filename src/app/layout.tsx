@@ -13,6 +13,9 @@ const fontSans = Outfit({
 
 export const metadata = {
   title: "Welcome to Sharebite",
+  icons: {
+    icon: "/favicon.svg", // <-- set your custom favicon here
+  },
 };
 
 export default async function RootLayout({

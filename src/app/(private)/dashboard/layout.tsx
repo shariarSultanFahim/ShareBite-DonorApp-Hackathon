@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import {
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  MoneyCollectFilled,
   UserOutlined,
   VideoCameraOutlined,
 } from "@ant-design/icons";
@@ -47,6 +48,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             },
             {
               key: "3",
+              icon: <MoneyCollectFilled />,
+              label: "My Donations",
+              onClick: () => router.push("/dashboard/my-donations"),
+            },
+            {
+              key: "4",
               icon: <UserOutlined />,
               label: "Logout",
               onClick: signout,

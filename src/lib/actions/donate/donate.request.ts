@@ -5,8 +5,8 @@ interface DonateData {
   images?: string;
   description: string;
   drop_type: string;
-  assumed_person_for: string;
-  donor_id: string;
+  assumed_person_for: number;
+  donor_id: number;
 }
 
 const donate = (data: DonateData) => {

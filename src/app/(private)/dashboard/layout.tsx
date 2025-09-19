@@ -1,16 +1,14 @@
 "use client";
 
 import React, { ReactNode, useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import {
   AppstoreOutlined,
   GiftOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
-  MoneyCollectFilled,
   PoweroffOutlined,
   UserOutlined,
-  VideoCameraOutlined,
 } from "@ant-design/icons";
 import { Button, Layout, Menu, theme } from "antd";
 import { signOut } from "next-auth/react";
@@ -23,6 +21,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
   const router = useRouter();
+  const pathname = usePathname();
 
   const signout = async () => {
     await signOut();
@@ -35,7 +34,16 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         <Menu
           theme="dark"
           mode="inline"
-          defaultSelectedKeys={["1"]}
+          selectedKeys={[
+            (() => {
+              const path = pathname || "";
+              if (path.startsWith("/dashboard/drop-requests")) return "2";
+              if (path.startsWith("/dashboard/hub")) return "3";
+              if (path.startsWith("/dashboard/employee")) return "4";
+              if (path === "/dashboard") return "1";
+              return "";
+            })(),
+          ]}
           items={[
             {
               key: "1",

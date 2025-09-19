@@ -241,6 +241,13 @@ export function SignupForm() {
                 >
                   <Item noStyle>
                     <Input
+                    className="ant-input"
+                      style={{
+                        height: 40,
+                        paddingTop: 8,
+                        borderRadius: 6,
+                        display: "block",
+                      }}
                       type="file"
                       accept="image/*"
                       name="avatar"
@@ -274,7 +281,7 @@ export function SignupForm() {
             Submit
           </Button>
           <h1 className="py-2 text-center text-sm font-medium">
-            Already have an account? <a href="/login">Log in</a>
+            Already have an account? <a href="/login" className="!text-[#EE217C]">Log in</a>
           </h1>
         </Form>
       </Card>

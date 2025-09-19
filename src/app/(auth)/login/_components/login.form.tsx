@@ -127,7 +127,7 @@ export function LoginForm() {
             Login
           </Button>
           <h1 className="py-2 text-center text-sm font-medium">
-            Don&apos;t have an account? <a href="/signup">Sign up</a>
+            Don&apos;t have an account? <a href="/signup" className="!text-[#EE217C]">Sign up</a>
           </h1>
         </Form>
       </Card>

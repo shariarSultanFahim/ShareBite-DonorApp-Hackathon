@@ -47,7 +47,7 @@ const options: NextAuthOptions = {
             password: credentials.password,
           };
 
-          const res = await axios.post("/donor/login/", payload);
+          const res = await axios.post("/donor/login", payload);
 
           if (res.data) {
             const { access: accessToken, refresh: refreshToken } = res.data; // Destructure access and refresh tokens

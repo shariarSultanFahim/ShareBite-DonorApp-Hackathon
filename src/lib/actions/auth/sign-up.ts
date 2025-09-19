@@ -11,8 +11,7 @@ interface SignupData {
 }
 
 const signup = (data: SignupData) => {
-  console.log(data);
-  return instance.post("/donor/signup", { ...data });
+  return instance.post("/donor/register", { ...data });
 };
 
 export const useSignup = () => {

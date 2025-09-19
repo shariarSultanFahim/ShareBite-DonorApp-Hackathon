@@ -5,6 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import signupSchema, { FormValues } from "./signup.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button, Card, Form, Input, message } from "antd";
+import { signIn } from "next-auth/react";
 const { Item, ErrorList } = Form;
 
 export function SignupForm() {
@@ -29,7 +30,7 @@ export function SignupForm() {
     // Clearing errors
     message.open({
       type: "loading",
-      content: "Signing in..",
+      content: "Signing up...",
       duration: 0,
     });
 
@@ -44,12 +45,19 @@ export function SignupForm() {
 
     message.destroy();
 
-    if (res.status) {
-      //redirect to login page
+    if (res.status === 201) {
+      //sign in the user using next auth
+      message.loading("Logging in...");
+      await signIn("credentials", {
+        email: values.email,
+        password: values.password,
+      });
+
       // router.push("/login");
     } else {
       message.error("Failed to signup. Please try again.");
     }
+    message.destroy();
   }
 
   return (

@@ -1,6 +1,6 @@
 "use client";
 
-import { useGetDonationList } from "@/lib/actions/donate/list.donation";
+import { useGetDonationListByDonorId } from "@/lib/actions/donate/list.donation";
 import { Table } from "antd";
 
 const columns = [
@@ -22,7 +22,7 @@ const columns = [
 ];
 
 export default function DonationTable({ userId }: { userId?: string }) {
-  const { data: donations, isLoading } = useGetDonationList({ userId: userId });
+  const { data: donations, isLoading } = useGetDonationListByDonorId({ id: userId, paginate: false });
 
   return (
     <Table

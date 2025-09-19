@@ -7,17 +7,17 @@ interface DonationListParams {
   page?: number;
   paginate?: boolean;
   search?: string;
-  userId?: string;
+  id?: string;
 }
 
-export const getDonationList = async (params?: DonationListParams) =>
-  await instance.get(`/drops`, {
-    params,
+export const getDonationListByDonorId = async (params?: DonationListParams) =>
+  await instance.get(`/drop/donor`, {
+    params
   });
 
-export const useGetDonationList = (params?: DonationListParams) => {
+export const useGetDonationListByDonorId = (params?: DonationListParams) => {
   return useQuery({
     queryKey: ["drop-list", params],
-    queryFn: () => getDonationList(params),
+    queryFn: () => getDonationListByDonorId(params),
   });
 };

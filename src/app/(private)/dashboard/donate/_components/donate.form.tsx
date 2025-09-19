@@ -5,7 +5,7 @@ import signupSchema, { FormValues } from "./donate.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useDonate } from "@/lib/actions/donate/donate.request";
 
-import { Button, Card, Form, Input, InputNumber, message, Space } from "antd";
+import { Button, Card, Form, Input, InputNumber, message, Select, Space } from "antd";
 const { Item, ErrorList } = Form;
 
 export function DonateForm({ userId }: { userId?: string }) {
@@ -53,13 +53,13 @@ export function DonateForm({ userId }: { userId?: string }) {
   return (
     <>
       {contextHolder}
-      <Card className="shadow-md">
+      <Card className="shadow-md max-w-xl mx-auto">
         <Form
           layout="vertical"
           requiredMark={false}
           onFinish={handleSubmit(onSubmit)}
         >
-          <div className="flex gap-4 md:flex-row flex-col md:flex">
+          <div className="flex gap-4 md:flex-row flex-col">
             <Controller
               control={control}
               name={"drop_type"}
@@ -70,14 +70,14 @@ export function DonateForm({ userId }: { userId?: string }) {
                 <>
                   <Item<FormValues>
                     label="Donation Type"
-                    style={{ marginBottom: "12px" }}
+                    style={{ marginBottom: "12px", width: "100%" }}
                   >
                     <Item noStyle>
                       <Form.Item noStyle>
                         <Space.Compact>
                           <Form.Item noStyle>
-                            <select
-                              className={`ant-input ant-input-lg ${
+                            <Select
+                              className={` ${
                                 error ? "border-red-500" : ""
                               }`}
                               value={value}
@@ -87,14 +87,14 @@ export function DonateForm({ userId }: { userId?: string }) {
                                 width: "100%",
                                 height: 40,
                                 borderRadius: 6,
-                                paddingLeft: 8,
+                               
                               }}
                             >
                               <option value="">Select type</option>
                               <option value="Food">Food</option>
                               <option value="Medicine">Medicine</option>
                               <option value="Cloth">Cloth</option>
-                            </select>
+                            </Select>
                           </Form.Item>
                         </Space.Compact>
                       </Form.Item>
@@ -118,7 +118,7 @@ export function DonateForm({ userId }: { userId?: string }) {
                 <>
                   <Item<FormValues>
                     label="For how many people"
-                    style={{ marginBottom: "12px" }}
+                    style={{ marginBottom: "12px", width: "100%", }}
                   >
                     <Item noStyle>
                       <InputNumber
@@ -183,7 +183,7 @@ export function DonateForm({ userId }: { userId?: string }) {
               <>
                 <Item<FormValues>
                   label="Image"
-                  style={{ marginBottom: "12px" }}
+                  style={{ marginBottom: "12px",  }}
                 >
                   <Item noStyle>
                     <Input
@@ -214,7 +214,7 @@ export function DonateForm({ userId }: { userId?: string }) {
             size="large"
             type="primary"
             htmlType="submit"
-            className="w-full"
+            className="w-full "
             disabled={isPending}
           >
             Submit

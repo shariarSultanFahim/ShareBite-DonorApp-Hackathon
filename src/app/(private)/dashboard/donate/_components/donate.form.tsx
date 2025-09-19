@@ -3,16 +3,16 @@
 import { Controller, useForm } from "react-hook-form";
 import signupSchema, { FormValues } from "./donate.schema";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Button, Card, Form, Input, message, Space } from "antd";
 import { useDonate } from "@/lib/actions/donate/donate.request";
 
 import { useSession } from "next-auth/react";
+import { Button, Card, Form, Input, message, Space } from "antd";
 const { Item, ErrorList } = Form;
 
 export function DonateForm() {
   const session = useSession();
   const userId = session?.data?.user?.id;
-
+  const [messageApi, contextHolder] = message.useMessage();
   const { mutateAsync: donate, isPending } = useDonate();
 
   const { handleSubmit, control, reset } = useForm<FormValues>({
@@ -27,9 +27,9 @@ export function DonateForm() {
   });
 
   async function onSubmit(values: FormValues) {
-    // console.log(values);
+    console.log(values);
     // Clearing errors
-    message.open({
+    messageApi.open({
       type: "loading",
       content: "Donating...",
       duration: 0,
@@ -38,35 +38,31 @@ export function DonateForm() {
     // Ensure avatar is a File or undefined
     const donateData = {
       ...values,
-      images: typeof values.images === "string" ? undefined : values.images,
+      donor_id: userId || "",
+      images: "",
     };
-
     // Making the request
     const res = await donate(donateData);
 
-    message.destroy();
+    messageApi.destroy();
 
     if (res.status === 201) {
       reset();
-      message.success("Drop successful!");
+      messageApi.success("Drop successful!");
     } else {
-      message.error("Failed to drop. Please try again.");
+      messageApi.error("Failed to drop. Please try again.");
     }
-    message.destroy();
+    messageApi.destroy();
   }
 
   return (
     <>
-      <div className="pb-10 text-center">
-        <h1 className="pb-1 text-2xl font-bold">Welcome</h1>
-        <p className="font-medium">Sign Up</p>
-      </div>
+      {contextHolder}
       <Card className="shadow-md">
         <Form
           layout="vertical"
-          className="font-semibold"
           requiredMark={false}
-          onSubmitCapture={handleSubmit(onSubmit)}
+          onFinish={handleSubmit(onSubmit)}
         >
           <Controller
             control={control}

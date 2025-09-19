@@ -50,10 +50,10 @@ const options: NextAuthOptions = {
           const res = await axios.post("/donor/login", payload);
 
           if (res.data) {
-            const { access_token: accessToken } = res.data.data; // Destructure access token and id
+            const { access_token: accessToken, donor_id: id } = res.data.data; // Destructure access token and id
             console.log("Login successful:", res.data.data);
             return {
-              id: "1",
+              id,
               accessToken,
             };
           } else {

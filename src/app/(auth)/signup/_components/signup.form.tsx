@@ -10,7 +10,7 @@ const { Item, ErrorList } = Form;
 
 export function SignupForm() {
   // const router = useRouter();
-
+  const [messageApi, contextHolder] = message.useMessage();
   const { mutateAsync: signup, isPending } = useSignup();
 
   const { handleSubmit, control } = useForm<FormValues>({
@@ -28,7 +28,7 @@ export function SignupForm() {
   async function onSubmit(values: FormValues) {
     console.log(values);
     // Clearing errors
-    message.open({
+    messageApi.open({
       type: "loading",
       content: "Signing up...",
       duration: 0,
@@ -43,11 +43,11 @@ export function SignupForm() {
     // Making the request
     const res = await signup(signupData);
 
-    message.destroy();
+    messageApi.destroy();
 
     if (res.status === 201) {
       //sign in the user using next auth
-      message.loading("Logging in...");
+      messageApi.loading("Logging in...");
       await signIn("credentials", {
         email: values.email,
         password: values.password,
@@ -55,13 +55,14 @@ export function SignupForm() {
 
       // router.push("/login");
     } else {
-      message.error("Failed to signup. Please try again.");
+      messageApi.error("Failed to signup. Please try again.");
     }
-    message.destroy();
+    messageApi.destroy();
   }
 
   return (
     <>
+      {contextHolder}
       <div className="pb-10 text-center">
         <h1 className="pb-1 text-2xl font-bold">Welcome</h1>
         <p className="font-medium">Sign Up</p>

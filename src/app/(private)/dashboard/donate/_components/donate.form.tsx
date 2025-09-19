@@ -53,7 +53,7 @@ export function DonateForm({ userId }: { userId?: string }) {
   return (
     <>
       {contextHolder}
-      <Card className="shadow-md max-w-2xl mx-auto">
+      <Card className="shadow-md">
         <Form
           layout="vertical"
           requiredMark={false}

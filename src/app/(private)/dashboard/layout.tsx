@@ -37,9 +37,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           selectedKeys={[
             (() => {
               const path = pathname || "";
-              if (path.startsWith("/dashboard/drop-requests")) return "2";
-              if (path.startsWith("/dashboard/hub")) return "3";
-              if (path.startsWith("/dashboard/employee")) return "4";
+              if (path.startsWith("/dashboard/donate")) return "2";
+              if (path.startsWith("/dashboard/my-donations")) return "3";
               if (path === "/dashboard") return "1";
               return "";
             })(),

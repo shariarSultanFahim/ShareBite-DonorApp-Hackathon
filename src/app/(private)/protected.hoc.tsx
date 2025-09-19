@@ -8,6 +8,7 @@ export default async function ProtectedHOC({
   children: ReactNode;
 }) {
   const session = await authSession();
+  console.log("Session in HOC:", session);
   if (!session) {
     redirect("/", RedirectType.replace);
   }

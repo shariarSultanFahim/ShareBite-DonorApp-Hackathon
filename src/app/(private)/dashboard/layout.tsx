@@ -42,8 +42,8 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
             {
               key: "2",
               icon: <VideoCameraOutlined />,
-              label: "route1",
-              onClick: () => router.push("/dashboard/route1"),
+              label: "Donate",
+              onClick: () => router.push("/dashboard/donate"),
             },
             {
               key: "3",
